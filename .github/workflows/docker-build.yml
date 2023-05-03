@@ -1,7 +1,6 @@
 name: Create Release and Push Docker Image
 
 on:
-  workflow_dispatch:
   push:
     tags:
       - '*'
@@ -18,7 +17,7 @@ jobs:
         id: create_release
         uses: actions/create-release@latest
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref.replace('refs/tags/', '') }}
           release_name: Release ${{ github.ref.replace('refs/tags/', '') }}
