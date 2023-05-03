@@ -17,8 +17,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v1.1.0 # replace with the tag name you want to use
-          release_name: Release v1.1.0 # replace with the release name you want to use
+          tag_name: v1.2.0 # replace with the tag name you want to use
+          release_name: Release v1.2.0 # replace with the release name you want to use
           body: Automated release created by GitHub Actions
           draft: false
           prerelease: false
