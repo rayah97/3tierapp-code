@@ -12,17 +12,17 @@ jobs:
         uses: actions/checkout@v2
       - name: Check GITHUB_TOKEN secret
         run: echo ${{ secrets.GITHUB_TOKEN }}
-
       - name: Create release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          tag_name: v1.1.0 # replace with the tag name you want to use
+          release_name: Release v1.1.0 # replace with the release name you want to use
           body: Automated release created by GitHub Actions
           draft: false
           prerelease: false
+
   push-docker-image:
     needs: create-release
     runs-on: ubuntu-latest
