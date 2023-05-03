@@ -21,4 +21,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: 3tier/yourimage:latest, yourdockerhubusername/yourimage:${{ github.ref }}
+        tags: 3tier/frontimage:latest, rayahh/frontimage:${{ github.ref }}
