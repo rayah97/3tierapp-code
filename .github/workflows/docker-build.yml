@@ -1,8 +1,9 @@
 name: Create Release and Push Docker Image
 
 on:
-  workflow_dispatch:
-    
+  push:
+    tags:
+      - '*'
 
 jobs:
   create-release:
