@@ -10,6 +10,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Check GITHUB_TOKEN secret
+        run: echo ${{ secrets.GITHUB_TOKEN }}
+
       - name: Create release
         uses: actions/create-release@v1
         env:
