@@ -20,7 +20,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.token}}
         WITH_V: true
     - name: Check tag format
-      run: echo ${{ steps.create-release.outputs.new_tag }}
+      run: echo ${{ steps.AutoTagger.outputs.new_tag }}
 
   push-docker-image:
     needs: create-release
