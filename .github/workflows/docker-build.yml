@@ -19,6 +19,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.token}}
         WITH_V: true
+    - name: Check tag format
+      run: echo ${{ steps.create-release.outputs.tag_name }}
 
   push-docker-image:
     needs: create-release
