@@ -27,6 +27,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Check tag format
+        run: echo ${{ steps.AutoTagger.outputs.new_tag }}
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
