@@ -28,14 +28,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Check tag format
-        run: echo ${{ steps.AutoTagger.outputs.new_tag }}
+        run: echo ${{ needs.create-release.outputs.new_tag }}
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
           context: .
           push: true
           tags: |
-            rayahh/3tier-front:${{ steps.AutoTagger.outputs.new_tag }}
+            rayahh/3tier-front:${{ needs.create-release.outputs.new_tag }}
           registry: docker.io
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
