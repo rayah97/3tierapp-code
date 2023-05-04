@@ -41,6 +41,7 @@ jobs:
         with:
           context: client
           push: true
+          platforms: linux/arm64/v8 
           tags: |
             rayahh/3tier-front:${{ needs.create-release.outputs.new_tag }}
           
