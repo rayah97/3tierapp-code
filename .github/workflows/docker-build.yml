@@ -8,6 +8,8 @@ on:
 jobs:
   create-release:
     runs-on: ubuntu-latest
+    outputs:
+      new_tag: ${{ steps.AutoTagger.outputs.new_tag }}
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
