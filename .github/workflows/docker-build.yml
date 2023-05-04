@@ -11,19 +11,14 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-    - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1
+  
+ 
+    - name: Minor version for each merge
+      id: AutoTagger
+      uses: anothrNick/github-tag-action@1.36.0
       env:
-        GITHUB_TOKEN: ${{ secrets.token }}
-      with:
-          tag_name: ${{ github.ref.replace('refs/heads/', '') }}
-          release_name: Release ${{ github.ref.replace('refs/heads/', '') }}
-          body: |
-            Changes in this Release
-            - some changes
-          draft: false
-          prerelease: false
+        GITHUB_TOKEN: ${{ secrets.token}}
+        WITH_V: true
 
   push-docker-image:
     needs: create-release
@@ -37,7 +32,7 @@ jobs:
           context: .
           push: true
           tags: |
-            rayahh/3tier-front:${{ steps.create-release.outputs.tag_name }}
+            rayahh/3tier-front:${{ steps.create-release.outputs.new_tag }}
           registry: docker.io
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
