@@ -34,7 +34,7 @@ jobs:
           context: .
           push: true
           tags: |
-            rayahh/3tier-front:${{ steps.create-release.outputs.new_tag }}
+            rayahh/3tier-front:${{ steps.AutoTagger.outputs.new_tag }}
           registry: docker.io
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
