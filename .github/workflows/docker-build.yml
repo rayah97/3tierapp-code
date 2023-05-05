@@ -32,7 +32,6 @@ jobs:
             event-type: update-deployment
             client-image-tag: ${{ needs.create-release.outputs.new_tag }}
 
-
   #     - name: Checkout code
   #       uses: actions/checkout@v2
   #     - name: Check tag format
