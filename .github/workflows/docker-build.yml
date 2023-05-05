@@ -21,10 +21,19 @@ jobs:
     - name: Check tag format
       run: echo ${{ steps.AutoTagger.outputs.new_tag }}
 
-  # push-docker-image:
-  #   needs: create-release
-  #   runs-on: ubuntu-latest
-  #   steps:
+  push-docker-image:
+    needs: create-release
+    runs-on: ubuntu-latest
+    steps:
+       - name: Trigger infra pipeline
+         uses: peter-evans/repository-dispatch@v1
+         with:
+            token: ${{ secrets.INFRA_REPO_TOKEN }}
+            repository: your-org/infra-repo
+            event-type: update-deployment
+            client-image-tag: ${{ needs.create-release.outputs.new_tag }}
+
+
   #     - name: Checkout code
   #       uses: actions/checkout@v2
   #     - name: Check tag format
