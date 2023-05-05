@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - "main" 
+      
 jobs:
   create-release:
     runs-on: ubuntu-latest
@@ -50,5 +51,5 @@ jobs:
   #         push: true
   #         platforms: linux/arm64/v8 
   #         tags: |
-  
+
   #           rayahh/3tier-front:${{ needs.create-release.outputs.new_tag }}
