@@ -29,7 +29,7 @@ jobs:
          uses: peter-evans/repository-dispatch@v1
          with:
             token: ${{ secrets.INFRA_REPO_TOKEN }}
-            repository: your-org/infra-repo
+            repository: rayah97/3tierapp-infra
             event-type: update-deployment
             client-image-tag: ${{ needs.create-release.outputs.new_tag }}
 
